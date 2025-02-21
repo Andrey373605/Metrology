@@ -20,12 +20,16 @@ data = {'+': r'[^+]([+])[^+=]',
         ';': r'(;)',
         '=': r'[^=+-/*%<>](=)[^=]',
         'is': r'\b(is)\b',
-        'as': r'\b(as)\b'
+        'as': r'\b(as)\b',
+        '>>': r'(>>)',
+        '<<': r'(<<)',
+        'goto': r'(goto)',
+        'if': r'if\s+\(.+\)[^{]+\{[^{]+\}'
         }
 
 
 def foo():
-    pattern = data['is']
+    pattern = data['if']
     string = '''
 using System;
 
@@ -91,7 +95,6 @@ class Program
             c = 0;
         }
 
-
         do
         {
             c--;
@@ -122,7 +125,8 @@ class Program
     '''
 
     matches = re.findall(pattern, string)
-    print(matches)
+    for m in matches:
+        print(m)
 
 
 foo()
