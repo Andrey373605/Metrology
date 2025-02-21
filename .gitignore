@@ -1,8 +1,9 @@
+*.csproj
+*.sln
+
 .idea/
 venv/
 __pycache__/
 .vs/
-*.sln
 bin/
 obj/
-*.csproj
