@@ -129,4 +129,3 @@ class Program
         print(m)
 
 
-foo()
