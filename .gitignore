@@ -1,2 +1,8 @@
+*.sln
+
 .idea/
 venv/
+__pycache__/
+.vs/
+bin/
+
