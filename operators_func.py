@@ -30,7 +30,7 @@ data = {'+': r'[^+]([+])[^+=]',
 
 def foo():
     pattern = data['if']
-    with open('example_code/example/example/Program.cs', 'r') as file:
+    with open('example/example/Program.cs', 'r') as file:
         content = file.read()
 
     matches = re.findall(pattern, content)
