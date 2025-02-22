@@ -4,7 +4,9 @@ from collections import Counter
 
 def find_operands(csharp_code):
     pattern = r'\b[a-zA-Z_][a-zA-Z0-9_]*\b|-?\d+\.?\d*'
-
+    text_pattern = r'\b[a-zA-Z_][a-zA-Z0-9_]*\b|//|\n'
+    csharp_code = re.sub(r'//.*', '', csharp_code)
+    csharp_code = re.sub(r'/\*.*?\*/', '', csharp_code, flags=re.DOTALL)
     matches = re.findall(pattern, csharp_code)
 
     keywords = {
@@ -24,16 +26,9 @@ def find_operands(csharp_code):
     return result
 
 
-csharp_code1 = """
-int x = 10;
-double y = 5.5;
-var result = x + y * z;
-if (result > threshold) {
-    Console.WriteLine("Success");
-}
-"""
-operands1 = find_operands(csharp_code1)
-print("Операнд/кол-во повторений:", operands1)
+with open('example/example/Program.cs', 'r') as file:
+    content = file.read()
+print("Операнд/кол-во повторений:", find_operands(content))
 
 
 
