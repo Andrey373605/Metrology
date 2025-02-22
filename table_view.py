@@ -11,7 +11,7 @@ def main():
     tree1.heading("Операнд", text="Количество")
     tree1.heading("Операнд", text="Количество")
 
-    data1 = find_operands()
+    data1 = find_operators()
 
     for item in data1:
         tree1.insert("", "end", values=item)

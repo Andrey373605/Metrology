@@ -82,6 +82,11 @@ class Program
             break;
         }
 
+        for (int i = 0;i< 10;i++)
+        {
+            a = 1;
+        }
+
         goto jump;
 
     jump:
