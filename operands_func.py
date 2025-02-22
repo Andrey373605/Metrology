@@ -7,6 +7,8 @@ def find_operands(csharp_code):
     text_pattern = r'\b[a-zA-Z_][a-zA-Z0-9_]*\b|//|\n'
     csharp_code = re.sub(r'//.*', '', csharp_code)
     csharp_code = re.sub(r'/\*.*?\*/', '', csharp_code, flags=re.DOTALL)
+    csharp_code = re.sub(r'\bclass\s+([a-zA-Z_][a-zA-Z0-9_]*)', '', csharp_code)
+    csharp_code = re.sub(r'\b[a-zA-Z_][a-zA-Z0-9_]*\s*\(', '(', csharp_code)
     matches = re.findall(pattern, csharp_code)
 
     keywords = {
@@ -14,7 +16,7 @@ def find_operands(csharp_code):
         "while", "for", "foreach", "switch", "case", "default", "break", "continue",
         "return", "public", "private", "protected", "static", "void", "class",
         "using", "namespace", "new", "true", "false", "null", "this", "base", "WriteLine",
-        "Console", "is", "as"
+        "Console", "is", "as", "Main", "goto", "do"
     }
 
     filtered_operands = [match for match in matches if match not in keywords]
