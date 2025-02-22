@@ -1,6 +1,5 @@
-from operators_func import *
-
+from table_view import *
 
 if __name__ == '__main__':
-    find_operands()
+    main()
 

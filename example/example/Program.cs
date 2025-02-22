@@ -29,7 +29,7 @@ class Program
         bool w5 = width == height;
         bool w6 = width != height;
         bool w7 = w1 && w2;
-        bool w8 = w1 || w2;
+        bool w8 = w1  w2;
 
         int bitwiseAnd = width & height;
         int bitwiseOr = width | height;
