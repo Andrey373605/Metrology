@@ -28,10 +28,4 @@ def find_operands(csharp_code):
     return result
 
 
-with open('example/example/Program.cs', 'r') as file:
-    content = file.read()
-print("Операнд/кол-во повторений:", find_operands(content))
-
-
-
 
