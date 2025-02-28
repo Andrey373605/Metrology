@@ -41,10 +41,9 @@ def foo(content, operand):
     return matches
 
 
-def find_operators():
-    with open('example/example/Program.cs', 'r') as file:
-        content = file.read()
+def find_operators(cs_code):
+
     table = []
     for d in data.keys():
-        table.append((d, len(foo(content, d))))
+        table.append((d, len(foo(cs_code, d))))
     return table
