@@ -41,7 +41,7 @@ def foo(content, operand):
     return matches
 
 
-def find_operands():
+def find_operators():
     with open('example/example/Program.cs', 'r') as file:
         content = file.read()
     table = []
