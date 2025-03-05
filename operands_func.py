@@ -16,7 +16,7 @@ def find_operands(csharp_code):
         "while", "for", "foreach", "switch", "case", "default", "break", "continue",
         "return", "public", "private", "protected", "static", "void", "class",
         "using", "namespace", "new", "true", "false", "null", "this", "base", "WriteLine",
-        "Console", "is", "as", "Main", "goto", "do"
+        "Console", "is", "as", "Main", "goto", "do", "Program"
     }
 
     filtered_operands = [match for match in matches if match not in keywords]
