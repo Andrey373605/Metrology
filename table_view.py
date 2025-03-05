@@ -2,13 +2,22 @@ from operators_func import *
 from operands_func import *
 import tkinter as tk
 from tkinter import ttk
+from tkinter import filedialog
 import math
 
 def main():
     root = tk.Tk()
     root.title("Метрика Холстеда")
 
-    with open('example/example/Program.cs', 'r') as file:
+    file_path = filedialog.askopenfilename(
+        title="Выберите файл",
+        filetypes=(("C# Files", "*.cs"), ("All Files", "*.*"))
+    )
+
+    if not file_path:
+        return
+
+    with open(file_path, 'r') as file:
         content = file.read()
 
     tree1 = ttk.Treeview(root, columns=("Операнд", "Количество"), show="headings")
