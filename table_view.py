@@ -11,8 +11,8 @@ def main():
         content = file.read()
 
     tree1 = ttk.Treeview(root, columns=("Операнд", "Количество"), show="headings")
-    tree1.heading("Операнд", text="Количество")
-    tree1.heading("Операнд", text="Количество")
+    tree1.heading("Операнд", text="Операнд")
+    tree1.heading("Количество", text="Количество")
 
     data1 = find_operands(content)
 
@@ -21,8 +21,8 @@ def main():
 
 
     tree2 = ttk.Treeview(root, columns=("Оператор", "Количество"), show="headings")
-    tree2.heading("Оператор", text="Количество")
-    tree2.heading("Оператор", text="Количество")
+    tree2.heading("Оператор", text="Оператор")
+    tree2.heading("Количество", text="Количество")
 
     data2 = find_operators(content)
 

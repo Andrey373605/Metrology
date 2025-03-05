@@ -30,7 +30,7 @@ data = {'+': r'[^+]([+])[^+=]',
         'do': r'(do)[\w\W]+?while',
         'for': r'(for)\s*\(.*;.*;.*\)',
         'foreach': r'(foreach)\s*\(.\)',
-        '?:': r'.+?.+:.+;'
+        '?:': r'.+?.+:.+;',
         }
 
 
@@ -42,8 +42,17 @@ def foo(content, operand):
 
 
 def find_operators(cs_code):
-
-    table = []
+    table = {}
     for d in data.keys():
-        table.append((d, len(foo(cs_code, d))))
-    return table
+        table[d] = len(foo(cs_code, d))
+
+    find_branches(table, cs_code)
+    return table.items()
+
+
+def find_branches(table, cs_code):
+    pattern = r'\([^()]+\)'
+    matches = len(re.findall(pattern, cs_code))
+    count = matches - table['if'] - table['do'] - table['while'] - table['for'] - table['foreach']
+    table['()'] = count
+
