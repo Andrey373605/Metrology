@@ -2,13 +2,23 @@ from operators_func import *
 from operands_func import *
 import tkinter as tk
 from tkinter import ttk
+from tkinter import filedialog
+import math
 
 
 def main():
     root = tk.Tk()
     root.title("Метрика Холстеда")
 
-    with open('example/example/Program.cs', 'r') as file:
+    file_path = filedialog.askopenfilename(
+        title="Выберите файл",
+        filetypes=(("C# Files", "*.cs"), ("All Files", "*.*"))
+    )
+
+    if not file_path:
+        return
+
+    with open(file_path, 'r') as file:
         content = file.read()
 
     tree1 = ttk.Treeview(root, columns=("Операнд", "Количество"), show="headings")
@@ -31,6 +41,24 @@ def main():
 
     tree1.pack(side="left", fill="both", expand=True)
     tree2.pack(side="right", fill="both", expand=True)
+
+    sum_operands = sum(value for _, value in data1)
+    sum_operators = sum(value for _, value in data2)
+    total_sum = sum_operands + sum_operators
+
+    count_operands = len(data1)
+    count_operators = len(data2)
+    total_count = count_operators + count_operands
+
+    label = tk.Label(root, text=
+                f"Словарь программы n = {count_operands} + {count_operators} = {total_count}\n"
+                f"Длина программы N = {sum_operands} + {sum_operators} = {total_sum}\n"
+                f"Объем программы V =  {total_sum}log2({total_count}) = {int(total_sum*math.log(total_count, 2))}"
+    )
+
+
+    # Размещение меток под таблицами
+    label.pack(side="bottom", anchor="w", padx=10, pady=5)
 
     root.mainloop()
 
