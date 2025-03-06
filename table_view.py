@@ -52,6 +52,10 @@ def main():
     total_count = count_operators + count_operands
 
     label = tk.Label(root, text=
+                f"Словарь операторов {count_operators}\n"
+                f"Словарь операндов {count_operands}\n"
+                f"Число операторов {sum_operators}\n"
+                f"Число операндов {sum_operands}\n"
                 f"Словарь программы n = {count_operands} + {count_operators} = {total_count}\n"
                 f"Длина программы N = {sum_operands} + {sum_operators} = {total_sum}\n"
                 f"Объем программы V =  {total_sum}log2({total_count}) = {int(total_sum*math.log(total_count, 2))}"
