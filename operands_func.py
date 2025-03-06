@@ -9,6 +9,7 @@ def find_operands(csharp_code):
     csharp_code = re.sub(r'/\*.*?\*/', '', csharp_code, flags=re.DOTALL)
     csharp_code = re.sub(r'\bclass\s+([a-zA-Z_][a-zA-Z0-9_]*)', '', csharp_code)
     csharp_code = re.sub(r'\b[a-zA-Z_][a-zA-Z0-9_]*\s*\(', '(', csharp_code)
+    csharp_code = re.sub(r'"[^"]*"', '', csharp_code)
     matches = re.findall(pattern, csharp_code)
 
     keywords = {

@@ -14,10 +14,8 @@
         //Hello world youoopppppp
 
         /*
-
         rfej
-        sssoooooooooosiiiiiiiiiiiiiiiiii
-
+       mfieefmiifej
         ffjfjffj
         */
         bool w1 = width > height;

@@ -18,7 +18,8 @@ def main():
     if not file_path:
         return
 
-    with open(file_path, 'r') as file:
+
+    with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
 
     tree1 = ttk.Treeview(root, columns=("Операнд", "Количество"), show="headings")
